@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <CssBaseline />
         <Routes>
- 
+            <Route path="/" element={<ExploreView />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
