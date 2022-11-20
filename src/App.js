@@ -8,6 +8,8 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ExploreView from './components/views/ExploreView';
+import PostView from './components/views/PostView';
 
 function App() {
   initiateSocketConnection();
@@ -17,6 +19,7 @@ function App() {
         <CssBaseline />
         <Routes>
             <Route path="/" element={<ExploreView />} />
+            <Route path="/posts/:id" element={<PostView />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

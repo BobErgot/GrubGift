@@ -1,6 +1,6 @@
 import {Container} from "@mui/material";
 import React from "react";
-import GridLayout from "../GridLayout";
+import GridLayout from "../components/GridLayout";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import PostBrowser from "../components/PostBrowser";

@@ -3,14 +3,14 @@ import {Box} from '@mui/system';
 import React, {useState} from 'react';
 import {AiFillCheckCircle, AiFillEdit, AiFillMessage} from 'react-icons/ai';
 import {useNavigate} from 'react-router-dom';
-import {deletePost, likePost, unlikePost, updatePost} from '../api/posts';
-import {isLoggedIn} from '../helpers/authHelper';
-import ContentDetails from './ContentDetails';
+import {deletePost, likePost, unlikePost, updatePost} from '../../api/posts';
+import {isLoggedIn} from '../../helpers/authHelper';
+import ContentDetails from '../ContentDetails';
 
 import LikeBox from '../LikeBox';
 import PostContentBox from './PostContentBox';
 import HorizontalStack from '../util/HorizontalStack';
-import ContentUpdateEditor from './ContentUpdateEditor';
+import ContentUpdateEditor from '../ContentUpdateEditor';
 import Markdown from '../markdown/Markdown';
 
 import './postCard.css';

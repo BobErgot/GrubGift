@@ -2,12 +2,12 @@ import {Button, Card, Stack, Typography} from '@mui/material';
 import {Box} from '@mui/system';
 import React, {useEffect, useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
-import {getPosts, getUserLikedPosts} from '../api/posts';
+import {getPosts, getUserLikedPosts} from '../../api/posts';
 import {isLoggedIn} from '../../helpers/authHelper';
 import CreatePost from './CreatePost'
 import Loading from '../Loading';
 import PostCard from './PostCard';
-import SortBySelect from './SortBySelect';
+import SortBySelect from '../SortBySelect';
 import HorizontalStack from '../util/HorizontalStack';
 
 const PostBrowser = (props) => {
