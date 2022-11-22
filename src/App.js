@@ -12,6 +12,8 @@ import ExploreView from './components/views/ExploreView';
 import PostView from './components/views/PostView';
 import PrivateRoute from './components/PrivateRoute';
 import CreatePostView from './components/views/CreatePostView';
+import LoginView from './components/views/LoginView';
+import SignupView from './components/views/SignupView';
 
 function App() {
     initiateSocketConnection();
@@ -28,6 +30,8 @@ function App() {
                             <CreatePostView/>
                         </PrivateRoute>}
                     />
+                    <Route path="/login" element={<LoginView />} />
+                    <Route path="/signup" element={<SignupView />} />
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>);
