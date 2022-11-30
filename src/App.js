@@ -14,6 +14,7 @@ import PrivateRoute from './components/PrivateRoute';
 import CreatePostView from './components/views/CreatePostView';
 import LoginView from './components/views/LoginView';
 import SignupView from './components/views/SignupView';
+import ProfileView from './components/views/ProfileView';
 
 function App() {
     initiateSocketConnection();
@@ -30,6 +31,7 @@ function App() {
                             <CreatePostView/>
                         </PrivateRoute>}
                     />
+                    <Route path="/users/:id" element={<ProfileView />} />
                     <Route path="/login" element={<LoginView />} />
                     <Route path="/signup" element={<SignupView />} />
                 </Routes>
