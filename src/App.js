@@ -15,6 +15,9 @@ import CreatePostView from './components/views/CreatePostView';
 import LoginView from './components/views/LoginView';
 import SignupView from './components/views/SignupView';
 import ProfileView from './components/views/ProfileView';
+import SearchView from './components/views/SearchView';
+import { initiateSocketConnection } from './helpers/socketHelper';
+<Route path="/externalSearch" element={<ExternalApiSearch />} />
 
 function App() {
     initiateSocketConnection();
@@ -31,9 +34,11 @@ function App() {
                             <CreatePostView/>
                         </PrivateRoute>}
                     />
+                    <Route path="/search" element={<SearchView />} />
                     <Route path="/users/:id" element={<ProfileView />} />
                     <Route path="/login" element={<LoginView />} />
                     <Route path="/signup" element={<SignupView />} />
+                    <Route path="/externalSearch" element={<ExternalApiSearch />} />
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>);
