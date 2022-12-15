@@ -8,7 +8,7 @@ import {AiFillBulb, AiFillGift, AiFillHome, AiFillMessage, AiOutlineSearch,} fro
 import {Link, useNavigate} from 'react-router-dom';
 import {isLoggedIn, logoutUser} from '../helpers/authHelper';
 import UserAvatar from './UserAvatar';
-import HorizontalStack from './util/HorizontalStack.';
+import HorizontalStack from './util/HorizontalStack';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -52,7 +52,8 @@ const Navbar = () => {
         setSearchIcon(!searchIcon);
     };
 
-    return (<Stack mb={2}>
+    return (
+        <Stack mb={2}>
             <Stack
                 direction="row"
                 alignItems="center"
@@ -78,124 +79,124 @@ const Navbar = () => {
                         GrubGift
                     </Typography>
                 </HorizontalStack>
-
+    
                 {!navWidth && (<Box component="form" onSubmit={handleSubmit}>
-                        <TextField
-                            placeholder="Search for posts..."
-                            size="small"
-                            className="input-field-txt search-field"
-                            sx={{
-                                flexGrow: 1, maxWidth: 300,
-                            }}
-                            onChange={handleChange}
-                            value={search}
-                            InputLabelProps={{shrink: false}}
-                        />
-                    </Box>)}
+                    <TextField
+                        placeholder="Search for posts..."
+                        size="small"
+                        className="input-field-txt search-field"
+                        sx={{
+                            flexGrow: 1, maxWidth: 300,
+                        }}
+                        onChange={handleChange}
+                        value={search}
+                        InputLabelProps={{shrink: false}}
+                    />
+                </Box>)}
                 {/* search-field  */}
-
+    
                 <HorizontalStack>
                     {mob && (<IconButton onClick={handleSearchIcon}>
-                            <AiOutlineSearch style={{color: '#fff4d6'}}/>
-                        </IconButton>)}
-
+                        <AiOutlineSearch style={{color: '#fff4d6'}}/>
+                    </IconButton>)}
+    
                     <IconButton component={Link} to={'/'} className="icon-nav-bar">
                         <AiFillHome style={{color: '#fff4d6'}}/>
                     </IconButton>
                     {user ? (<>
-                            <IconButton
-                                component={Link}
-                                to={'/messenger'}
-                                className="icon-nav-bar"
-                            >
-                                <AiFillMessage style={{color: '#fff4d6'}}/>
-                            </IconButton>
-                            <IconButton
-                                component={Link}
-                                to={'/users/' + username}
-                                className="icon-nav-bar"
-                            >
-                                <UserAvatar width={30} height={30} username={user.username}/>
-                            </IconButton>
-                            <Button
-                                className="find-facts-txt"
-                                variant="text"
-                                sx={{minWidth: 80}}
-                                href="/externalSearch"
-                            >
-                                {' '}
-                                <AiFillBulb
-                                    size={20}
-                                    style={{color: '#fff4d6', marginRight: '5px'}}
-                                />
-                                <span className="hide-on-mobile">Find facts</span>
-                            </Button>
-                            <IconButton
-                                className="find-facts-mobile icon-nav-bar"
-                                component={Link}
-                                to={'/externalSearch'}
-                            >
-                                <AiFillBulb
-                                    size={20}
-                                    style={{color: '#fff4d6', marginRight: '5px'}}
-                                />
-                            </IconButton>
-                            <Button className="yellow-btn" onClick={handleLogout}>
-                                Logout
-                            </Button>
-                        </>) : (<>
-                            <Button
-                                className="find-facts-txt"
-                                variant="text"
-                                sx={{minWidth: 80}}
-                                href="/externalSearch"
-                            >
-                                {' '}
-                                <AiFillBulb
-                                    size={20}
-                                    style={{color: '#fff4d6', marginRight: '5px'}}
-                                />
-                                <span className="hide-on-mobile">Find facts</span>
-                            </Button>
-                            <IconButton
-                                className="find-facts-mobile icon-nav-bar"
-                                component={Link}
-                                to={'/externalSearch'}
-                            >
-                                <AiFillBulb
-                                    size={20}
-                                    style={{color: '#fff4d6', marginRight: '5px'}}
-                                />
-                            </IconButton>
-                            <Button
-                                className="yellow-btn"
-                                variant="text"
-                                sx={{minWidth: 80}}
-                                href="/signup"
-                            >
-                                Sign Up
-                            </Button>
-                            <Button
-                                className="yellow-btn"
-                                variant="text"
-                                sx={{minWidth: 65}}
-                                href="/login"
-                            >
-                                Login
-                            </Button>
-                        </>)}
+                        <IconButton
+                            component={Link}
+                            to={'/messenger'}
+                            className="icon-nav-bar"
+                        >
+                            <AiFillMessage style={{color: '#fff4d6'}}/>
+                        </IconButton>
+                        <IconButton
+                            component={Link}
+                            to={'/users/' + username}
+                            className="icon-nav-bar"
+                        >
+                            <UserAvatar width={30} height={30} username={user.username}/>
+                        </IconButton>
+                        <Button
+                            className="find-facts-txt"
+                            variant="text"
+                            sx={{minWidth: 80}}
+                            href="/externalSearch"
+                        >
+                            {' '}
+                            <AiFillBulb
+                                size={20}
+                                style={{color: '#fff4d6', marginRight: '5px'}}
+                            />
+                            <span className="hide-on-mobile">Find facts</span>
+                        </Button>
+                        <IconButton
+                            className="find-facts-mobile icon-nav-bar"
+                            component={Link}
+                            to={'/externalSearch'}
+                        >
+                            <AiFillBulb
+                                size={20}
+                                style={{color: '#fff4d6', marginRight: '5px'}}
+                            />
+                        </IconButton>
+                        <Button className="yellow-btn" onClick={handleLogout}>
+                            Logout
+                        </Button>
+                    </>) : (<>
+                        <Button
+                            className="find-facts-txt"
+                            variant="text"
+                            sx={{minWidth: 80}}
+                            href="/externalSearch"
+                        >
+                            {' '}
+                            <AiFillBulb
+                                size={20}
+                                style={{color: '#fff4d6', marginRight: '5px'}}
+                            />
+                            <span className="hide-on-mobile">Find facts</span>
+                        </Button>
+                        <IconButton
+                            className="find-facts-mobile icon-nav-bar"
+                            component={Link}
+                            to={'/externalSearch'}
+                        >
+                            <AiFillBulb
+                                size={20}
+                                style={{color: '#fff4d6', marginRight: '5px'}}
+                            />
+                        </IconButton>
+                        <Button
+                            className="yellow-btn"
+                            variant="text"
+                            sx={{minWidth: 80}}
+                            href="/signup"
+                        >
+                            Sign Up
+                        </Button>
+                        <Button
+                            className="yellow-btn"
+                            variant="text"
+                            sx={{minWidth: 65}}
+                            href="/login"
+                        >
+                            Login
+                        </Button>
+                    </>)}
                 </HorizontalStack>
             </Stack>
             {navWidth && searchIcon && (<Box component="form" onSubmit={handleSubmit} mt={2}>
-                    <TextField
-                        size="small"
-                        label="Search for posts..."
-                        fullWidth
-                        onChange={handleChange}
-                        value={search}
-                        className="input-field-txt search-field"
-                    />
-                </Box>)}
+                <TextField
+                    size="small"
+                    label="Search for posts..."
+                    fullWidth
+                    onChange={handleChange}
+                    value={search}
+                    className="input-field-txt search-field"
+                />
+            </Box>)}
         </Stack>);
 };
 

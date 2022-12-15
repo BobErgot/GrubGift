@@ -1,7 +1,7 @@
 import {Card, Stack, Typography} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {getPosts} from "../../api/posts";
-import {isLoggedIn} from "../helpers/authHelper";
+import {isLoggedIn} from "../../helpers/authHelper";
 import Loading from "../Loading";
 import PostCard from "./PostCard";
 import HorizontalStack from "../util/HorizontalStack";
@@ -12,7 +12,7 @@ const TopPosts = () => {
     const [loading, setLoading] = useState(true);
     const [posts, setPosts] = useState(null);
     const user = isLoggedIn();
-    
+
     const fetchPosts = async () => {
         const query = {sortBy: "-likeCount"};
 
@@ -43,16 +43,10 @@ const TopPosts = () => {
                     <Typography>Top Posts</Typography>
                 </HorizontalStack>
             </Card>
-            {!loading ? (
-                posts &&
-                posts.map((post) => (
-                    <PostCard preview="secondary" post={post} key={post._id}/>
-                ))
-            ) : (
-                 <Loading/>
-             )}
-        </Stack>
-    );
+            {!loading ? (posts && posts.map(
+                    (post) => (<PostCard preview="secondary" post={post} key={post._id}/>))) : (
+                 <Loading/>)}
+        </Stack>);
 };
 
 export default TopPosts;

@@ -56,20 +56,20 @@ const ExternalApiSearch = () => {
                     <List sx={{padding: 0, maxHeight: '100%', overflowY: 'auto'}}>
                         {questions.slice(0, 10).map((eachItem, index) => {
                             return (<Typography paragraph variant="body1">
-                                    <Link
-                                        key={index}
-                                        className="generic-link facts-link"
-                                        target={'_blank'}
-                                        href={eachItem.link}
-                                    >
-                                        <strong>{eachItem.title}</strong>
-                                    </Link>
-                                    <br/>
-                                    <div hidden={hidden}>
-                                        <span>Answer Count : {eachItem.answer_count}</span>
-                                        &nbsp;<span>View Count : {eachItem.view_count}</span>
-                                    </div>
-                                </Typography>);
+                                <Link
+                                    key={index}
+                                    className="generic-link facts-link"
+                                    target={'_blank'}
+                                    href={eachItem.link}
+                                >
+                                    <strong>{eachItem.title}</strong>
+                                </Link>
+                                <br/>
+                                <div hidden={hidden}>
+                                    <span>Answer Count : {eachItem.answer_count}</span>
+                                    &nbsp;<span>View Count : {eachItem.view_count}</span>
+                                </div>
+                            </Typography>);
                         })}
                     </List>
                     <Button onClick={HandleDetailsRequest} className="yellow-btn">Details</Button>

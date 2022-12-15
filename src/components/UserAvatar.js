@@ -5,13 +5,10 @@ const UserAvatar = ({username, height, width}) => {
     return (
         <Avatar
             sx={{
-                height: height,
-                width: width,
-                backgroundColor: "lightgray",
+                height: height, width: width, backgroundColor: "lightgray",
             }}
             src={"https://robohash.org/" + username}
-        />
-    );
+        />);
 };
 
 export default UserAvatar;

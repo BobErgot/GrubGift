@@ -18,9 +18,7 @@ const CommentBrowser = (props) => {
         setLoading(true);
         const newPage = page + 1;
         setPage(newPage);
-        return await getUserComments({
-                                         id: props.profileUser._id, query: {sortBy},
-                                     });
+        return await getUserComments({id: props.profileUser._id, query: {sortBy},});
     };
 
     useEffect(() => {
@@ -31,9 +29,7 @@ const CommentBrowser = (props) => {
     }, [sortBy]);
 
     const handleBackToTop = () => {
-        window.scrollTo({
-                            top: 0, behavior: 'smooth',
-                        });
+        window.scrollTo({top: 0, behavior: 'smooth',});
     };
 
     const sorts = {
@@ -62,29 +58,29 @@ const CommentBrowser = (props) => {
                 <SortBySelect onSortBy={handleSortBy} sortBy={sortBy} sorts={sorts}/>
             </Card>
             {loading ? (<Loading/>) : (<>
-                    {comments && comments.map(
-                        (comment) => (<Comment key={comment._id} comment={comment} profile/>))}
-
-                    <Stack py={5} alignItems="center">
-                        <Typography
-                            variant="h5"
-                            color="text.secondary"
-                            className="end-of-page"
-                            gutterBottom
-                        >
-                            {comments.length > 0 ? (<>All comments have been viewed</>) : (<>No
-                                    comments available</>)}
-                        </Typography>
-                        <Button
-                            variant="text"
-                            className="yellow-btn"
-                            size="small"
-                            onClick={handleBackToTop}
-                        >
-                            Back to top
-                        </Button>
-                    </Stack>
-                </>)}
+                {comments && comments.map(
+                    (comment) => (<Comment key={comment._id} comment={comment} profile/>))}
+    
+                <Stack py={5} alignItems="center">
+                    <Typography
+                        variant="h5"
+                        color="text.secondary"
+                        className="end-of-page"
+                        gutterBottom
+                    >
+                        {comments.length > 0 ? (<>All comments have been viewed</>) : (<>No
+                            comments available</>)}
+                    </Typography>
+                    <Button
+                        variant="text"
+                        className="yellow-btn"
+                        size="small"
+                        onClick={handleBackToTop}
+                    >
+                        Back to top
+                    </Button>
+                </Stack>
+            </>)}
         </Stack>);
 };
 

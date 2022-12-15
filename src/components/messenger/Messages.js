@@ -86,13 +86,9 @@ const Messages = (props) => {
             (conversationCompare) => conversation._id !== conversationCompare._id);
 
         newConversations.unshift(conversation);
-
         props.setConversations(newConversations);
-
         setMessages(newMessages);
-
         await sendMessage(user, newMessage, conversation.recipient._id);
-
         socket.emit('send-message', conversation.recipient._id, user.username, content);
     };
 
@@ -100,8 +96,6 @@ const Messages = (props) => {
         const newMessage = {direction: 'to', content};
 
         const conversation = props.getConversation(conversationsRef.current, senderId);
-
-        console.log(username + ' ' + content);
 
         if (conversation) {
             let newMessages = [newMessage];
@@ -120,7 +114,6 @@ const Messages = (props) => {
                 (conversationCompare) => conversation._id !== conversationCompare._id);
 
             newConversations.unshift(conversation);
-
             props.setConversations(newConversations);
         } else {
             const newConversation = {
@@ -132,7 +125,6 @@ const Messages = (props) => {
             };
             props.setConversations([newConversation, ...conversationsRef.current]);
         }
-
         scrollToBottom();
     };
 
@@ -140,19 +132,21 @@ const Messages = (props) => {
         socket.on('receive-message', handleReceiveMessage);
     }, []);
 
-    return props.conservant ? (<>
-            {messages && conversation && !loading ? (<>
+    return props.conservant ? (
+        <>
+            {messages && conversation && !loading ? (
+                <>
                     <HorizontalStack
                         alignItems="center"
                         spacing={2}
                         sx={{px: 2, height: '60px'}}
                     >
                         {props.mobile && (<IconButton
-                                onClick={() => props.setConservant(null)}
-                                sx={{padding: 0}}
-                            >
-                                <AiFillCaretLeft/>
-                            </IconButton>)}
+                            onClick={() => props.setConservant(null)}
+                            sx={{padding: 0}}
+                        >
+                            <AiFillCaretLeft/>
+                        </IconButton>)}
                         <UserAvatar
                             username={props.conservant.username}
                             height={30}
@@ -176,30 +170,32 @@ const Messages = (props) => {
                             >
                                 <div ref={messagesEndRef}/>
                                 {messages.map((message, i) => (<Message
-                                        conservant={props.conservant}
-                                        message={message}
-                                        key={i}
-                                    />))}
+                                    conservant={props.conservant}
+                                    message={message}
+                                    key={i}
+                                />))}
                             </Stack>
                         </Box>
                     </Box>
                     <SendMessage onSendMessage={handleSendMessage}/>
                     {scrollToBottom()}
-                </>) : (<Stack sx={{height: '100%'}} justifyContent="center">
-                    <Loading/>
-                </Stack>)}
-        </>) : (<Stack
-            sx={{height: '100%'}}
-            justifyContent="center"
-            alignItems="center"
-            spacing={2}
-        >
-            <AiFillMessage size={80}/>
-            <Typography variant="h5">GrubGift Messenger</Typography>
-            <Typography color="text.secondary">
-                Privately message other users on GrubGift
-            </Typography>
-        </Stack>);
+                </>) : (
+                    <Stack sx={{height: '100%'}} justifyContent="center">
+                        <Loading/>
+                    </Stack>)}
+        </>) : (
+            <Stack
+                sx={{height: '100%'}}
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+            >
+                <AiFillMessage size={80}/>
+                <Typography variant="h5">GrubGift Messenger</Typography>
+                <Typography color="text.secondary">
+                    Privately message other users on GrubGift
+                </Typography>
+            </Stack>);
 };
 
 export default Messages;

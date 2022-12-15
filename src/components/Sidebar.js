@@ -2,6 +2,7 @@ import {Stack} from "@mui/material";
 import React from "react";
 import FindUsers from "./FindUsers";
 import Footer from "./Footer";
+import TopPosts from "../components/post/TopPosts"
 
 const Sidebar = () => {
     return (
@@ -9,8 +10,7 @@ const Sidebar = () => {
             <TopPosts/>
             <FindUsers/>
             <Footer/>
-        </Stack>
-    );
+        </Stack>);
 };
 
 export default Sidebar;

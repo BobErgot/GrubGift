@@ -89,9 +89,7 @@ const PostCard = (props) => {
                         alignItems="center"
                         spacing={1}
                         sx={{
-                            backgroundColor: '#f9bf34',
-                            width: '50px',
-                            padding: theme.spacing(1),
+                            backgroundColor: '#f9bf34', width: '50px', padding: theme.spacing(1),
                         }}
                     >
                         <LikeBox
@@ -110,35 +108,26 @@ const PostCard = (props) => {
                                 promoted={post.poster.role}
                             />
                             <Box>
-                                {user &&
-                                 (isAuthor || user.isAdmin) &&
-                                 preview !== 'secondary' && (
-                                     <HorizontalStack>
-                                         <IconButton
-                                             disabled={loading}
-                                             size="small"
-                                             onClick={handleEditPost}
-                                         >
-                                             {editing ? (
-                                                 <MdCancel color={iconColor}/>
-                                             ) : (
-                                                  <AiFillEdit color={iconColor}/>
-                                              )}
-                                         </IconButton>
-                                         <IconButton
-                                             disabled={loading}
-                                             size="small"
-                                             onClick={handleDeletePost}
-                                         >
-                                             {confirm ? (
-                                                 <AiFillCheckCircle
-                                                     color={theme.palette.error.main}/>
-                                             ) : (
-                                                  <BiTrash color={theme.palette.error.main}/>
-                                              )}
-                                         </IconButton>
-                                     </HorizontalStack>
-                                 )}
+                                {user && (isAuthor || user.isAdmin) && preview !== 'secondary' && (
+                                    <HorizontalStack>
+                                        <IconButton
+                                            disabled={loading}
+                                            size="small"
+                                            onClick={handleEditPost}
+                                        >
+                                            {editing ? (<MdCancel color={iconColor}/>) : (
+                                                <AiFillEdit color={iconColor}/>)}
+                                        </IconButton>
+                                        <IconButton
+                                            disabled={loading}
+                                            size="small"
+                                            onClick={handleDeletePost}
+                                        >
+                                            {confirm ? (<AiFillCheckCircle
+                                                    color={theme.palette.error.main}/>) : (
+                                                 <BiTrash color={theme.palette.error.main}/>)}
+                                        </IconButton>
+                                    </HorizontalStack>)}
                             </Box>
                         </HorizontalStack>
 
@@ -151,21 +140,16 @@ const PostCard = (props) => {
                             {post.title}
                         </Typography>
 
-                        {preview !== 'secondary' &&
-                         (editing ? (
-                             <ContentUpdateEditor
-                                 handleSubmit={handleSubmit}
-                                 originalContent={post.content}
-                             />
-                         ) : (
-                              <Box
-                                  maxHeight={maxHeight}
-                                  overflow="hidden"
-                                  className="content"
-                              >
-                                  <Markdown content={post.content}/>
-                              </Box>
-                          ))}
+                        {preview !== 'secondary' && (editing ? (<ContentUpdateEditor
+                                handleSubmit={handleSubmit}
+                                originalContent={post.content}
+                            />) : (<Box
+                                maxHeight={maxHeight}
+                                overflow="hidden"
+                                className="content"
+                            >
+                                <Markdown content={post.content}/>
+                            </Box>))}
 
                         <HorizontalStack sx={{mt: 1}}>
                             <AiFillMessage/>
@@ -180,8 +164,7 @@ const PostCard = (props) => {
                     </PostContentBox>
                 </HorizontalStack>
             </Box>
-        </Card>
-    );
+        </Card>);
 };
 
 export default PostCard;

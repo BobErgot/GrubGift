@@ -4,7 +4,7 @@ import React from "react";
 const ErrorAlert = ({error}) => {
     return (error && (
         <Alert variant="filled" severity="error">
-                {error}
+            {error}
         </Alert>));
 };
 

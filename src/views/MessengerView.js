@@ -1,9 +1,9 @@
 import {Card, Grid} from "@mui/material";
 import {Box, Container} from "@mui/system";
 import React, {useEffect, useState} from "react";
-import Messages from "../Messages";
+import Messages from "../components/messenger/Messages";
 import Navbar from "../components/Navbar";
-import UserMessengerEntries from "../UserMessengerEntries";
+import UserMessengerEntries from "../components/messenger/UserMessengerEntries";
 import {retrieveChats} from "../api/messages";
 import {isLoggedIn} from "../helpers/authHelper";
 import {useLocation} from "react-router-dom";
@@ -58,7 +58,8 @@ const MessengerView = () => {
         setWindowWidth(width);
     };
 
-    return (<Container>
+    return (
+        <Container>
             <Navbar/>
             <Box>
                 <Card sx={{padding: 0}}>
@@ -68,33 +69,9 @@ const MessengerView = () => {
                         alignItems="stretch"
                     >
                         {!mobile ? (<>
-                                <Grid
-                                    item
-                                    xs={5}
-                                    sx={{
-                                        borderRight: 1, borderColor: "divider", height: "100%",
-                                    }}
-                                >
-                                    <UserMessengerEntries
-                                        conservant={conversant}
-                                        conversations={conversations}
-                                        setConservant={setConversant}
-                                        loading={loading}
-                                    />
-                                </Grid>
-
-                                <Grid item xs={7} sx={{height: "100%"}}>
-                                    <Messages
-                                        conservant={conversant}
-                                        conversations={conversations}
-                                        setConservant={setConversant}
-                                        setConversations={setConversations}
-                                        getConversation={getConversation}
-                                    />
-                                </Grid>
-                            </>) : !conversant ? (<Grid
+                            <Grid
                                 item
-                                xs={12}
+                                xs={5}
                                 sx={{
                                     borderRight: 1, borderColor: "divider", height: "100%",
                                 }}
@@ -105,25 +82,49 @@ const MessengerView = () => {
                                     setConservant={setConversant}
                                     loading={loading}
                                 />
-                                <Box sx={{display: "none"}}>
-                                    <Messages
-                                        conservant={conversant}
-                                        conversations={conversations}
-                                        setConservant={setConversant}
-                                        setConversations={setConversations}
-                                        getConversation={getConversation}
-                                    />
-                                </Box>
-                            </Grid>) : (<Grid item xs={12} sx={{height: "100%"}}>
+                            </Grid>
+    
+                            <Grid item xs={7} sx={{height: "100%"}}>
                                 <Messages
                                     conservant={conversant}
                                     conversations={conversations}
                                     setConservant={setConversant}
                                     setConversations={setConversations}
                                     getConversation={getConversation}
-                                    mobile
                                 />
-                            </Grid>)}
+                            </Grid>
+                        </>) : !conversant ? (<Grid
+                            item
+                            xs={12}
+                            sx={{
+                                borderRight: 1, borderColor: "divider", height: "100%",
+                            }}
+                        >
+                            <UserMessengerEntries
+                                conservant={conversant}
+                                conversations={conversations}
+                                setConservant={setConversant}
+                                loading={loading}
+                            />
+                            <Box sx={{display: "none"}}>
+                                <Messages
+                                    conservant={conversant}
+                                    conversations={conversations}
+                                    setConservant={setConversant}
+                                    setConversations={setConversations}
+                                    getConversation={getConversation}
+                                />
+                            </Box>
+                        </Grid>) : (<Grid item xs={12} sx={{height: "100%"}}>
+                            <Messages
+                                conservant={conversant}
+                                conversations={conversations}
+                                setConservant={setConversant}
+                                setConversations={setConversations}
+                                getConversation={getConversation}
+                                mobile
+                            />
+                        </Grid>)}
                     </Grid>
                 </Card>
             </Box>

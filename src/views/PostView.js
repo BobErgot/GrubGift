@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar";
 import {useParams} from "react-router-dom";
 import {getPost} from "../api/posts";
 import Comments from "../components/comment/Comments";
-import ErrorAlert from "../ErrorAlert";
+import ErrorAlert from "../components/ErrorAlert";
 import {isLoggedIn} from "../helpers/authHelper";
 
 const PostView = () => {
@@ -41,10 +41,10 @@ const PostView = () => {
             <GoBack/>
             <GridLayout
                 left={loading ? (<Loading/>) : post ? (<Stack spacing={2}>
-                        <PostCard post={post} key={post._id}/>
-
-                        <Comments/>
-                    </Stack>) : (error && <ErrorAlert error={error}/>)}
+                    <PostCard post={post} key={post._id}/>
+    
+                    <Comments/>
+                </Stack>) : (error && <ErrorAlert error={error}/>)}
                 right={<Sidebar/>}
             />
         </Container>);

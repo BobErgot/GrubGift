@@ -32,7 +32,7 @@ const SendMessage = (props) => {
                         }
                     }}
                 />
-
+    
                 <Button
                     className="yellow-btn"
                     onClick={handleSendMessage}

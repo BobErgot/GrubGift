@@ -26,9 +26,8 @@ const Message = (props) => {
             justifyContent={styles.justifyContent}
             alignItems="flex-end"
         >
-            {message.direction === 'to' && (
-                <UserAvatar username={username} height={30} width={30}/>)}
-
+            {message.direction === 'to' && (<UserAvatar username={username} height={30} width={30}/>)}
+    
             <Card
                 sx={{
                     borderRadius: '25px',

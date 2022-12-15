@@ -5,18 +5,14 @@ const theme = createTheme({
                                   MuiCard: {
                                       defaultProps: {
                                           variant: "outlined",
-                                      },
-                                      styleOverrides: {
-                                          root: ({ownerState, theme}) =>
-                                              ({
+                                      }, styleOverrides: {
+                                          root: ({ownerState, theme}) => ({
                                               ...{
-                                                  padding: theme.spacing(2),
-                                                  borderWidth: "1.5px",
+                                                  padding: theme.spacing(2), borderWidth: "1.5px",
                                               },
                                           }),
                                       },
-                                  },
-                                  MuiContainer: {
+                                  }, MuiContainer: {
                                       defaultProps: {
                                           maxWidth: "md",
                                       },

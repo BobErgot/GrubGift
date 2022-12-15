@@ -3,7 +3,7 @@ import React from "react";
 import GridLayout from "../components/GridLayout";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import PostBrowser from "../components/PostBrowser";
+import PostBrowser from "../components/post/PostBrowser";
 
 const ExploreView = () => {
     return (

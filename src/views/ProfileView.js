@@ -103,10 +103,10 @@ const ProfileView = () => {
                     />
                     <Stack spacing={2}>
                         {profile ? (<>
-                                <ProfileTabs tab={tab} setTab={setTab}/>
-
-                                {populateTabs(profile)[tab]}
-                            </>) : (<Loading/>)}
+                            <ProfileTabs tab={tab} setTab={setTab}/>
+    
+                            {populateTabs(profile)[tab]}
+                        </>) : (<Loading/>)}
                         {error && <ErrorAlert error={error}/>}
                     </Stack>
                 </>}

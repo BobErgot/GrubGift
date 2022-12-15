@@ -55,7 +55,6 @@ const CommentEditor = ({label, comment, addComment, setReplying}) => {
                         Markdown Help
                     </a>
                 </HorizontalStack>
-
                 <Box component="form" onSubmit={handleSubmit}>
                     <TextField
                         multiline
@@ -71,7 +70,7 @@ const CommentEditor = ({label, comment, addComment, setReplying}) => {
                         onFocus={handleFocus}
                         value={formData.content}
                     />
-
+    
                     <ErrorAlert error={error} sx={{my: 4}}/>
                     <Button
                         className="yellow-btn"

@@ -122,7 +122,8 @@ const PostBrowser = (props) => {
 
     const sorts = contentTypeSorts[props.contentType];
 
-    return (<>
+    return (
+        <>
             <Stack spacing={2}>
                 <Card className="create-bar">
                     <HorizontalStack justifyContent="space-between">
@@ -134,57 +135,57 @@ const PostBrowser = (props) => {
                         />
                     </HorizontalStack>
                 </Card>
-
+    
                 {searchExists && (<Box>
-                        <Typography variant="h5" className="end-of-page" gutterBottom>
-                            Showing results for "{search.get('search')}"
-                        </Typography>
-                        <Typography
-                            color="text.secondary"
-                            className="generic-yellow-txt"
-                            variant="span"
-                        >
-                            {posts.length} results found
-                        </Typography>
-                    </Box>)}
-
+                    <Typography variant="h5" className="end-of-page" gutterBottom>
+                        Showing results for "{search.get('search')}"
+                    </Typography>
+                    <Typography
+                        color="text.secondary"
+                        className="generic-yellow-txt"
+                        variant="span"
+                    >
+                        {posts.length} results found
+                    </Typography>
+                </Box>)}
+    
                 {posts.map((post, i) => (<PostCard
-                        preview="primary"
-                        key={post._id}
-                        post={post}
-                        removePost={removePost}
-                    />))}
-
+                    preview="primary"
+                    key={post._id}
+                    post={post}
+                    removePost={removePost}
+                />))}
+    
                 {loading && <Loading/>}
                 {end ? (<Stack py={5} alignItems="center">
-                        <Typography
-                            className="end-of-page"
-                            variant="h5"
-                            color="text.secondary"
-                            gutterBottom
-                        >
-                            {posts.length > 0 ? (<>All posts have been viewed</>) : (<>No posts
-                                    available</>)}
-                        </Typography>
-                        <Button
-                            variant="text"
-                            size="small"
-                            className="yellow-btn"
-                            onClick={handleBackToTop}
-                        >
+                    <Typography
+                        className="end-of-page"
+                        variant="h5"
+                        color="text.secondary"
+                        gutterBottom
+                    >
+                        {posts.length > 0 ? (<>All posts have been viewed</>) : (<>No posts
+                            available</>)}
+                    </Typography>
+                    <Button
+                        variant="text"
+                        size="small"
+                        className="yellow-btn"
+                        onClick={handleBackToTop}
+                    >
+                        Back to top
+                    </Button>
+                </Stack>) : (!loading && posts && posts.length > 0 && (
+                    <Stack pt={2} pb={6} alignItems="center" spacing={2}>
+                        <Button onClick={handleButtonClick}
+                                variant="contained" className="yellow-btn">
+                            Load more
+                        </Button>
+                        <Button variant="text" size="small" onClick={handleBackToTop}
+                                className="generic-yellow-txt smaller-text">
                             Back to top
                         </Button>
-                    </Stack>) : (!loading && posts && posts.length > 0 && (
-                        <Stack pt={2} pb={6} alignItems="center" spacing={2}>
-                            <Button onClick={handleButtonClick}
-                                    variant="contained" className="yellow-btn">
-                                Load more
-                            </Button>
-                            <Button variant="text" size="small" onClick={handleBackToTop}
-                                    className="generic-yellow-txt smaller-text">
-                                Back to top
-                            </Button>
-                        </Stack>))}
+                    </Stack>))}
             </Stack>
         </>);
 };
